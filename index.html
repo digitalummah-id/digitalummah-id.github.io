@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigitalUmmah - Portal Software Muslim Modern</title>
+  <style>
+    :root {
+      --bg-dark: #051619;
+      --bg-mid: #082026;
+      --bg-glow: #0d2f36;
+      --frame-bg: #082026;
+      --card-bg: #082026;
+      --border-soft: #1a4750;
+      --border-hover: rgba(232, 182, 56, 0.72);
+      --gold: #e8b638;
+      --teal: #2b8a85;
+      --text-main: #f3f7f7;
+      --text-muted: #96b2b4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg-mid);
+      background-image:
+        radial-gradient(circle at 30% 50%, var(--bg-glow) 0%, var(--bg-mid) 52%, var(--bg-dark) 100%);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 36px 24px;
+    }
+
+    .hub-container {
+      width: 100%;
+      max-width: 1040px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .brand-panel {
+      flex-shrink: 0;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      overflow: hidden;
+      text-align: center;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .brand-logo-frame {
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      background-color: var(--frame-bg);
+      line-height: 0;
+    }
+
+    .brand-logo-frame img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .brand-footer {
+      width: 100%;
+      padding: 12px 16px;
+      background-color: var(--frame-bg);
+    }
+
+    .brand-subtitle {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .branch-connector {
+      width: 84px;
+      height: 220px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .branch-connector svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .apps-panel {
+      flex: 1;
+      max-width: 580px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .app-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 14px;
+      padding: 0;
+      padding-right: 22px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transform: translateY(0);
+      box-shadow: 0 0 0 rgba(232, 182, 56, 0);
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.28s ease,
+                  box-shadow 0.28s ease;
+    }
+
+    .app-card:hover {
+      background-color: var(--card-bg);
+      transform: translateY(-3px);
+      border-color: var(--border-hover);
+      box-shadow: 0 0 0 1px rgba(232, 182, 56, 0.22),
+                  0 8px 24px rgba(232, 182, 56, 0.12);
+    }
+
+    .app-icon-frame {
+      display: block;
+      width: fit-content;
+      flex-shrink: 0;
+      background-color: var(--frame-bg);
+      line-height: 0;
+    }
+
+    .app-icon-frame img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .app-body {
+      flex: 1;
+      min-width: 0;
+      padding: 16px 0;
+      background-color: var(--card-bg);
+    }
+
+    .app-name {
+      font-size: 21px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+
+    .app-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 12px;
+    }
+
+    .app-btn {
+      display: inline-block;
+      background-color: var(--gold);
+      color: #082026;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 15px;
+      border-radius: 7px;
+      transition: filter 0.25s ease;
+    }
+
+    .app-card:hover .app-btn {
+      filter: brightness(1.06);
+    }
+
+    footer {
+      margin-top: 28px;
+      font-size: 12px;
+      color: var(--text-muted);
+      opacity: 0.65;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hub-container {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .brand-panel,
+      .apps-panel {
+        width: 100%;
+        max-width: 520px;
+      }
+
+      .branch-connector {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .app-card {
+        flex-direction: column;
+        text-align: center;
+        padding-right: 0;
+      }
+
+      .app-body {
+        padding: 16px 20px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="hub-container">
+    <section class="brand-panel">
+      <div class="brand-logo-frame">
+        <img src="logoDigitalUmmah.jpg" alt="DigitalUmmah Logo">
+      </div>
+      <div class="brand-footer">
+        <p class="brand-subtitle">Portal software muslim Modern</p>
+      </div>
+    </section>
+
+    <div class="branch-connector" aria-hidden="true">
+      <svg viewBox="0 0 84 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10 110 L 34 110 L 52 54 L 74 54" stroke="#e8b638" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="10" cy="110" r="4" fill="#e8b638"/>
+        <circle cx="74" cy="54" r="4" fill="#e8b638"/>
+
+        <path d="M 10 110 L 34 110 L 52 166 L 74 166" stroke="#2b8a85" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="74" cy="166" r="4" fill="#2b8a85"/>
+      </svg>
+    </div>
+
+    <section class="apps-panel">
+      <a href="jam-shalat.html" class="app-card">
+        <div class="app-icon-frame">
+          <img src="LogoJam.jpg" alt="Jam Shalat Digital">
+        </div>
+        <div class="app-body">
+          <div class="app-name">Jam Shalat Digital</div>
+          <p class="app-desc">Jadwal shalat akurat, tampilan jam analog, dan pengingat adzan.</p>
+          <span class="app-btn">Lihat Aplikasi</span>
+        </div>
+      </a>
+
+      <a href="al-quran.html" class="app-card">
+        <div class="app-icon-frame">
+          <img src="LogoAlquran.jpg" alt="Al-Qur'an Digital">
+        </div>
+        <div class="app-body">
+          <div class="app-name">Al-Qur'an Digital</div>
+          <p class="app-desc">Bacaan per surah, terjemahan, catatan kaki, dan bookmark cepat.</p>
+          <span class="app-btn">Mulai Membaca</span>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    © RadigaSoft. All rights reserved.
+  </footer>
+
+</body>
+</html>

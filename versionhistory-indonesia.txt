@@ -10,7 +10,7 @@ Al-Qur'an Digital DigitalUmmah versi pertama.
 - Aplikasi portable: satu EXE, satu data Al-Qur'an, satu file bahasa, tanpa instalasi.
 - Teks Arab 114 surah dan 6.236 ayat mengikuti Al-Qur'an Kemenag.
 - Tanda baca, tanda waqaf, dan nomor ayat sesuai Kemenag.
-- Dua font Arab tertanam: Hanzo Naskh dan LPMQ Isep Misbah.
+- Dua font Arab tertanam: DigitalUmmah dan LPMQ Isep Misbah.
 - Font dimuat dari dalam data aplikasi, tanpa memasang font ke Windows.
 - Ganti font langsung terlihat dan pilihan diingat.
 - Nomor ayat bisa tampil bergaya Arab atau angka biasa.

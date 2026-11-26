@@ -1,3 +1,32 @@
+Version 1.01
+============
+FITUR BARU: Aplikasi bisa mendeteksi jika ada versi baru.
+FITUR BARU: Panel App Info berisi riwayat versi dan informasi donasi.
+
 Version 1.00
 ============
-Al=Quran Digital DigitalUmmah versi pertama
+Al-Qur'an Digital DigitalUmmah versi pertama.
+
+- Aplikasi portable: satu EXE, satu data Al-Qur'an, satu file bahasa, tanpa instalasi.
+- Teks Arab 114 surah dan 6.236 ayat mengikuti Al-Qur'an Kemenag.
+- Tanda baca, tanda waqaf, dan nomor ayat sesuai Kemenag.
+- Dua font Arab tertanam: Hanzo Naskh dan LPMQ Isep Misbah.
+- Font dimuat dari dalam data aplikasi, tanpa memasang font ke Windows.
+- Ganti font langsung terlihat dan pilihan diingat.
+- Nomor ayat bisa tampil bergaya Arab atau angka biasa.
+- Panel Tampilkan Surah untuk membuka surah 1 sampai 114.
+- Tombol panah untuk pindah ke surah sebelumnya atau berikutnya.
+- Pencarian nama surah, nomor ayat, dan kata.
+- Terjemahan di bawah setiap ayat, bisa dinyalakan atau dimatikan.
+- Cara baca Latin untuk membantu melafalkan.
+- Penanda bacaan panjang (aa, ii, uu) pada teks Latin.
+- Catatan kaki tampil terpisah dan bisa disembunyikan.
+- Mode baca penuh sampai ruku untuk tampilan seperti mushaf.
+- Bookmark ayat dengan lencana jumlah dan lompat langsung ke posisi tersimpan.
+- Tiga slot cepat: C1, C2, dan C3.
+- Auto scroll dengan kecepatan yang bisa diatur.
+- Zoom tampilan.
+- Pilihan skin warna dan motif bingkai geometris Islami.
+- Pengaturan tersimpan otomatis.
+- Bahasa antarmuka Indonesia dan English.
+- Gratis dan tanpa iklan.

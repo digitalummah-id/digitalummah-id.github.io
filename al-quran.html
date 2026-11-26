@@ -540,6 +540,33 @@
       }
     }
 
+    .dl-btn-count {
+      display: none;
+      font-size: 11px;
+      font-weight: 700;
+      margin-top: 3px;
+      line-height: 1.2;
+    }
+
+    .dl-btn-count.show {
+      display: block;
+    }
+
+    .dl-total {
+      display: none;
+      margin-top: 12px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .dl-total.show {
+      display: block;
+    }
+
+    .dl-total b {
+      color: var(--gold);
+    }
+
 </style>
 </head>
 <body>
@@ -559,9 +586,10 @@
 </div>
 <p class="subtitle">Pilih paket arsip sesuai bahasa yang digunakan. File dikemas dalam bentuk ZIP agar langsung siap diekstrak dan dijalankan.</p>
 <div class="download-group">
-<a href="https://github.com/user-attachments/files/35432238/Al-Qur.an.Digital.-.Indonesian.zip" class="dl-btn"><span class="dl-btn-title">Al-qur&#x27;an Indonesian (.zip)</span><span class="dl-btn-size">1,302 KB</span></a>
-<a href="https://github.com/user-attachments/files/35432239/Al-Qur.an.Digital.-.English.zip" class="dl-btn"><span class="dl-btn-title">Al-qur&#x27;an English (.zip)</span><span class="dl-btn-size">1,400 KB</span></a>
+<a href="#" id="dlId" class="dl-btn"><span class="dl-btn-title">Al-qur&#x27;an Indonesian (.zip)</span><span class="dl-btn-size">1,302 KB</span><span class="dl-btn-count"></span></a>
+<a href="#" id="dlEn" class="dl-btn"><span class="dl-btn-title">Al-qur&#x27;an English (.zip)</span><span class="dl-btn-size">1,400 KB</span><span class="dl-btn-count"></span></a>
 </div>
+<div class="dl-total" id="dlTotal"></div>
 </div>
 <aside class="saweria-box">
 <div class="saweria-label">Dukung via Saweria</div>
@@ -755,6 +783,68 @@
   });
 })();
 
+</script>
+<script>
+(function () {
+  var OWNER = "digitalummah-id";
+  var REPO = "digitalummah-id.github.io";
+  var TAG = "quran-v1.0";
+  var UNIT = "unduhan";
+  var TOTAL = "Total unduhan";
+  var LOC = "id-ID";
+  if (!REPO) {
+    var seg = location.pathname.split("/").filter(function (x) { return x.length > 0 && x.indexOf(".") < 0; });
+    REPO = seg.length > 0 ? seg[0] : OWNER + ".github.io";
+  }
+  var base = "https://github.com/" + OWNER + "/" + REPO + "/releases/download/" + TAG + "/";
+  var btnId = document.getElementById("dlId");
+  var btnEn = document.getElementById("dlEn");
+  btnId.href = base + "Al-Qur.an.Digital.-.Indonesian.zip";
+  btnEn.href = base + "Al-Qur.an.Digital.-.English.zip";
+  var totalEl = document.getElementById("dlTotal");
+  function fmt(n) { return Number(n).toLocaleString(LOC); }
+  function show(el, text) { el.innerHTML = text; el.className = el.className.replace(" show", "") + " show"; }
+  function apply(assets) {
+    var sum = 0, found = 0;
+    for (var i = 0; i < assets.length; i++) {
+      var nm = String(assets[i].name).toLowerCase();
+      var c = Number(assets[i].download_count) || 0;
+      var target = null;
+      if (nm.indexOf("indonesian") >= 0) target = btnId;
+      else if (nm.indexOf("english") >= 0) target = btnEn;
+      if (target) {
+        show(target.querySelector(".dl-btn-count"), fmt(c) + " " + UNIT);
+        sum += c;
+        found++;
+      }
+    }
+    if (found > 0) show(totalEl, TOTAL + ": <b>" + fmt(sum) + "</b>");
+  }
+  var key = "dlcount:" + OWNER + "/" + REPO + "/" + TAG;
+  try {
+    var raw = sessionStorage.getItem(key);
+    if (raw) {
+      var obj = JSON.parse(raw);
+      if (Date.now() - obj.t < 600000) { apply(obj.a); return; }
+    }
+  } catch (e) {}
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://api.github.com/repos/" + OWNER + "/" + REPO + "/releases/tags/" + TAG);
+  xhr.setRequestHeader("Accept", "application/vnd.github+json");
+  xhr.onload = function () {
+    if (xhr.status !== 200) return;
+    try {
+      var data = JSON.parse(xhr.responseText);
+      var list = [];
+      for (var i = 0; i < data.assets.length; i++) {
+        list.push({ name: data.assets[i].name, download_count: data.assets[i].download_count });
+      }
+      try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), a: list })); } catch (e) {}
+      apply(list);
+    } catch (e) {}
+  };
+  xhr.send();
+})();
 </script>
 </body>
 </html>

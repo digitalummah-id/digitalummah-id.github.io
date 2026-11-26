@@ -10,7 +10,7 @@ Al-Qur'an Digital by DigitalUmmah, first release.
 - Portable app: one EXE, one Qur'an data file, one language file, no installation.
 - Arabic text of 114 surahs and 6,236 verses follows the Kemenag Qur'an.
 - Punctuation, waqf marks, and verse numbers match Kemenag.
-- Two embedded Arabic fonts: Hanzo Naskh and LPMQ Isep Misbah.
+- Two embedded Arabic fonts: DigitalUmmah and LPMQ Isep Misbah.
 - Fonts load from inside the app data, no need to install them in Windows.
 - Font changes apply instantly and your choice is remembered.
 - Verse numbers can use Arabic style or plain digits.

@@ -225,9 +225,42 @@
         padding: 16px 20px 20px;
       }
     }
+
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      display: inline-flex;
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .lang-switch a {
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-decoration: none;
+      background-color: var(--card-bg);
+    }
+
+    .lang-switch a.on {
+      background-color: var(--gold);
+      color: #082026;
+    }
+
+    @media (max-width: 860px) {
+      .lang-switch {
+        position: static;
+        margin-bottom: 18px;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <div class="lang-switch"><a href="index.html" class="on">Indonesian</a><a href="index2.html">English</a></div>
 
   <main class="hub-container">
     <section class="brand-panel">
@@ -276,7 +309,7 @@
   </main>
 
   <footer>
-    © RadigaSoft. All rights reserved.
+    © DigitalUmmah. All rights reserved.
   </footer>
 
 </body>

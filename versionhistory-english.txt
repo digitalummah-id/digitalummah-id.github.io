@@ -30,3 +30,9 @@ Al-Qur'an Digital by DigitalUmmah, first release.
 - Settings are saved automatically.
 - Interface languages: Indonesian and English.
 - Free and ad-free.
+
+Copyright
+=========
+The LPMQ Isep Misbah font is the copyright of Lajnah Pentashihan Mushaf Al-Qur'an (LPMQ), Ministry of Religious Affairs of the Republic of Indonesia.
+The Qur'an text, translation, and footnotes are sourced from the Qur'an of the Ministry of Religious Affairs of the Republic of Indonesia.
+All copyrights remain with their respective owners.

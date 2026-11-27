@@ -30,3 +30,9 @@ Al-Qur'an Digital DigitalUmmah versi pertama.
 - Pengaturan tersimpan otomatis.
 - Bahasa antarmuka Indonesia dan English.
 - Gratis dan tanpa iklan.
+
+Hak Cipta
+=========
+Font LPMQ Isep Misbah adalah hak cipta Lajnah Pentashihan Mushaf Al-Qur'an (LPMQ), Kementerian Agama Republik Indonesia.
+Teks Al-Qur'an, terjemahan, dan catatan kaki bersumber dari Al-Qur'an Kementerian Agama Republik Indonesia.
+Seluruh hak cipta tetap dimiliki oleh pemiliknya masing-masing.

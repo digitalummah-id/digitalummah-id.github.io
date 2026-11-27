@@ -267,8 +267,8 @@
       float: left;
       position: relative;
       overflow: hidden;
-      width: 240px;
-      height: 150px;
+      width: 264px;
+      aspect-ratio: 1490 / 1008;
       margin: 4px 22px 12px 0;
       padding: 0;
       border: 2px solid var(--border-soft);
@@ -424,14 +424,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .float-thumb,
-      .article-block.flip .float-thumb {
-        float: none;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 8 / 5;
-        margin: 0 0 12px 0;
-      }
+
     }
 
     .page-footer {
@@ -532,12 +525,6 @@
         width: 100%;
       }
 
-      .float-thumb {
-        float: none;
-        width: 100%;
-        height: 84px;
-        margin: 0 0 12px 0;
-      }
     }
 
     .dl-btn-count {
@@ -567,6 +554,30 @@
       color: var(--gold);
     }
 
+
+    .float-thumb img,.gal-item img{background-color:var(--bg-dark)}
+    .float-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,22,25,.35),transparent 45%);pointer-events:none;opacity:0;transition:opacity .2s ease}
+    .float-thumb:hover::after{opacity:1}
+    .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;clear:both;margin-top:16px}
+    .gal.five{grid-template-columns:repeat(5,1fr)}
+    .gal-head{clear:both;margin-top:18px;font-size:13px;font-weight:700;color:var(--gold)}
+    .gal-item{display:block;padding:0;border:2px solid var(--border-soft);border-radius:8px;background:var(--surface);overflow:hidden;cursor:pointer;text-align:center;color:var(--text-main);transition:border-color .2s ease,transform .2s ease}
+    .gal-item:hover{border-color:var(--gold);transform:translateY(-2px)}
+    .gal-item img{display:block;width:100%;height:auto;aspect-ratio:1490/1008}
+    .gal-item span{display:block;padding:6px 6px 7px;font-size:12px;font-weight:600;line-height:1.3}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:34px}
+    .card{background-color:rgba(10,38,45,.55);border:1px solid var(--border-soft);border-radius:14px;padding:18px}
+    .card h3{font-size:15px;color:var(--gold);margin-bottom:6px}
+    .card p{font-size:14px;line-height:1.6;color:var(--text-muted)}
+    .stats{grid-template-columns:repeat(3,1fr)}
+    .lightbox-btns{display:flex;gap:8px}
+    .lightbox:not(.nav) .lb-nav{display:none}
+    .lightbox-content img{width:auto}
+    @media (max-width:680px){
+      .float-thumb,.article-block.flip .float-thumb{float:none;width:100%;margin:0 0 12px 0}
+      .cards{grid-template-columns:1fr}
+      .gal,.gal.five{grid-template-columns:repeat(2,1fr)}
+    }
 </style>
 </head>
 <body>
@@ -578,7 +589,7 @@
 <header class="top-header">
 <div class="app-intro">
 <div class="app-brand">
-<img src="LogoAlquran.jpg" alt="Al-Qur&#x27;an Digital logo">
+<img src="LogoAlquran.jpg" alt="Logo Al-Qur&#x27;an Digital">
 <div>
 <h1>Al-Qur'an Digital</h1>
 <p class="subtitle">A desktop app for reading the Qur&#x27;an by surah, with translation, footnotes, and bookmarks, from DigitalUmmah.</p>
@@ -597,158 +608,28 @@
 <a href="https://saweria.co/DigitalUmmah" target="_blank" rel="noopener noreferrer" class="saweria-handle">saweria.co/DigitalUmmah</a>
 </aside>
 </header>
-<section class="video-section">
-<h2 class="section-heading">YouTube Video Preview</h2>
-<p class="section-desc">A quick look at the app on a desktop screen before you download the release.</p>
-<div class="video-frame"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Al-Qur&#x27;an Digital Video Preview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-</section>
 <section class="stats-section">
 <h2 class="section-heading">App at a Glance</h2>
-<div class="stats">
-<div class="stat"><div class="stat-num">114</div><div class="stat-label">Surahs</div></div>
-<div class="stat"><div class="stat-num">6,236</div><div class="stat-label">Verses</div></div>
-<div class="stat"><div class="stat-num">2</div><div class="stat-label">Arabic fonts</div></div>
-<div class="stat"><div class="stat-num">1 EXE</div><div class="stat-label">No install</div></div>
-</div>
+<div class="stats"><div class="stat"><div class="stat-num">114</div><div class="stat-label">Surahs</div></div><div class="stat"><div class="stat-num">6,236</div><div class="stat-label">Verses</div></div><div class="stat"><div class="stat-num">1 MB</div><div class="stat-label">App size</div></div><div class="stat"><div class="stat-num">3</div><div class="stat-label">Reading modes</div></div><div class="stat"><div class="stat-num">30</div><div class="stat-label">Color skins</div></div><div class="stat"><div class="stat-num">31</div><div class="stat-label">Frame motifs</div></div></div>
 </section>
 <article class="article-stream">
 <h2 class="section-heading">Full Features &amp; User Guide</h2>
-<p class="section-desc">Each feature explained, with how to use it. Click the image box beside each section to see the full-size screenshot.</p>
-<section class="article-block ">
-<span class="tag">Portable</span>
-<h2><span class="hn">01</span>One app, no installation</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-01.jpg" data-title="One app, no installation" title="Click to enlarge image"><img class="thumb-img" src="fitur-01-thumb.jpg" alt="One app, no installation" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">01</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-01-thumb.jpg<br>480 × 300 px</span></span></button>Al-Qur&#x27;an Digital is built to stay light. The app is just one EXE file, one Qur&#x27;an data file (alquran.qre), and one language file. There is no installer and no complicated setup. Extract the ZIP and run it.</p>
-<p>Both Arabic fonts are stored inside the data file and loaded straight into memory when the app starts. You do not need to install any font into Windows, and the Arabic text looks the same on every computer.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Accuracy</span>
-<h2><span class="hn">02</span>Arabic text that follows Qur&#x27;an Kemenag</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-02.jpg" data-title="Arabic text that follows Qur&#x27;an Kemenag" title="Click to enlarge image"><img class="thumb-img" src="fitur-02-thumb.jpg" alt="Arabic text that follows Qur&#x27;an Kemenag" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">02</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-02-thumb.jpg<br>480 × 300 px</span></span></button>All 114 surahs and 6,236 verses follow the Qur&#x27;an Kemenag text, including punctuation, pause marks, and verse numbers. Nothing is shortened or paraphrased.</p>
-<p>Each verse ends with an ornamental number circle, so the boundary between verses stays easy to spot in long passages.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Typography</span>
-<h2><span class="hn">03</span>Two Arabic font choices</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-03.jpg" data-title="Two Arabic font choices" title="Click to enlarge image"><img class="thumb-img" src="fitur-03-thumb.jpg" alt="Two Arabic font choices" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">03</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-03-thumb.jpg<br>480 × 300 px</span></span></button>Choose between Hanzo Naskh and LPMQ Isep Misbah in Settings. Hanzo Naskh is a modern naskh style with neat diacritics, while LPMQ Isep Misbah is the Indonesian Standard Mushaf font that many readers already know.</p>
-<p>The font changes instantly without restarting, and your choice is remembered for next time.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Navigation</span>
-<h2><span class="hn">04</span>All 114 surahs in one panel</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-04.jpg" data-title="All 114 surahs in one panel" title="Click to enlarge image"><img class="thumb-img" src="fitur-04-thumb.jpg" alt="All 114 surahs in one panel" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">04</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-04-thumb.jpg<br>480 × 300 px</span></span></button>The left panel shows buttons numbered 1 to 114. Click a number and the surah opens from the very first line. The left and right arrows take you to the previous or next surah.</p>
-<p>The surah currently open is highlighted in blue, so you always know where you are.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Search</span>
-<h2><span class="hn">05</span>Search by surah, verse, or word</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-05.jpg" data-title="Search by surah, verse, or word" title="Click to enlarge image"><img class="thumb-img" src="fitur-05-thumb.jpg" alt="Search by surah, verse, or word" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">05</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-05-thumb.jpg<br>480 × 300 px</span></span></button>The search box in the left panel accepts a surah name, a verse number, or a word. Results appear as a list, and one click takes you straight to that verse.</p>
-<p>When there are too many matches, the app shows a limited first set so the list stays fast and easy to scan.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Translation</span>
-<h2><span class="hn">06</span>Translation under every verse</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-06.jpg" data-title="Translation under every verse" title="Click to enlarge image"><img class="thumb-img" src="fitur-06-thumb.jpg" alt="Translation under every verse" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">06</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-06-thumb.jpg<br>480 × 300 px</span></span></button>The translation appears right below its verse. There is no need to switch pages or open another window to understand the meaning.</p>
-<p>You can turn the translation on or off, so you can focus on the Arabic text alone when reviewing your memorization.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Reading aid</span>
-<h2><span class="hn">07</span>Latin reading to help with pronunciation</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-07.jpg" data-title="Latin reading to help with pronunciation" title="Click to enlarge image"><img class="thumb-img" src="fitur-07-thumb.jpg" alt="Latin reading to help with pronunciation" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">07</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-07-thumb.jpg<br>480 × 300 px</span></span></button>For readers who are not yet fluent in Arabic script, each verse comes with a Latin transliteration. It follows the Kemenag data, so it stays consistent with the Arabic above it.</p>
-<p>The Latin line can be hidden at any time to keep the page clean.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Notes</span>
-<h2><span class="hn">08</span>Footnotes that stay tidy</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-08.jpg" data-title="Footnotes that stay tidy" title="Click to enlarge image"><img class="thumb-img" src="fitur-08-thumb.jpg" alt="Footnotes that stay tidy" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">08</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-08-thumb.jpg<br>480 × 300 px</span></span></button>Some verses carry footnotes that explain terms or context. The app shows them as a separate section so the verse text is never interrupted.</p>
-<p>Like other features, footnotes can be shown or hidden from Settings.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Bookmarks</span>
-<h2><span class="hn">09</span>Bookmarks to resume reading</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-09.jpg" data-title="Bookmarks to resume reading" title="Click to enlarge image"><img class="thumb-img" src="fitur-09-thumb.jpg" alt="Bookmarks to resume reading" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">09</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-09-thumb.jpg<br>480 × 300 px</span></span></button>Mark the verse you are reading and come back to it any time with the Bookmark button. A blue badge on the button shows how many bookmarks you have saved.</p>
-<p>When you open a verse from the bookmark list, the app takes you to the marked position instead of the start of the surah.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Quick slots</span>
-<h2><span class="hn">10</span>Three quick slots: C1, C2, and C3</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-10.jpg" data-title="Three quick slots: C1, C2, and C3" title="Click to enlarge image"><img class="thumb-img" src="fitur-10-thumb.jpg" alt="Three quick slots: C1, C2, and C3" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">10</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-10-thumb.jpg<br>480 × 300 px</span></span></button>The C1, C2, and C3 buttons in the left panel are shortcuts for readings you open often, such as a surah you recite every morning or evening.</p>
-<p>When you click a slot, the view jumps straight to the top of the reading.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Tajwid</span>
-<h2><span class="hn">11</span>Long vowel markers</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-11.jpg" data-title="Long vowel markers" title="Click to enlarge image"><img class="thumb-img" src="fitur-11-thumb.jpg" alt="Long vowel markers" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">11</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-11-thumb.jpg<br>480 × 300 px</span></span></button>The Long vowels (aa, ii, uu) option helps you recognize elongated sounds in the Latin text. Turn it on when you want to practice, and off when you prefer a simpler look.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Comfort</span>
-<h2><span class="hn">12</span>Auto scroll for hands-free reading</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-12.jpg" data-title="Auto scroll for hands-free reading" title="Click to enlarge image"><img class="thumb-img" src="fitur-12-thumb.jpg" alt="Auto scroll for hands-free reading" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">12</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-12-thumb.jpg<br>480 × 300 px</span></span></button>Turn on Auto scroll and the text moves up on its own. It suits long reading sessions or reviewing while you hold a mushaf or other notes.</p>
-<p>The speed can be adjusted, and you can stop it at any time.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Settings</span>
-<h2><span class="hn">13</span>A complete Settings menu</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-13.jpg" data-title="A complete Settings menu" title="Click to enlarge image"><img class="thumb-img" src="fitur-13-thumb.jpg" alt="A complete Settings menu" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">13</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-13-thumb.jpg<br>480 × 300 px</span></span></button>Settings gathers the Arabic font, Latin display, translation, footnotes, long vowels, auto scroll, and bold non-Arabic text. Every change shows on screen immediately.</p>
-<p>Settings are saved automatically, so the app opens exactly as you left it.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Language</span>
-<h2><span class="hn">14</span>Indonesian and English interface</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-14.jpg" data-title="Indonesian and English interface" title="Click to enlarge image"><img class="thumb-img" src="fitur-14-thumb.jpg" alt="Indonesian and English interface" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">14</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-14-thumb.jpg<br>480 × 300 px</span></span></button>All button and menu text follows the selected language file. Indonesian and English packs are available, and either can be swapped without touching the Qur&#x27;an data.</p>
-<p>Because language lives in its own file, more languages can be added later without rebuilding the app.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Look and feel</span>
-<h2><span class="hn">15</span>Dark interface with an ornamental frame</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-15.jpg" data-title="Dark interface with an ornamental frame" title="Click to enlarge image"><img class="thumb-img" src="fitur-15-thumb.jpg" alt="Dark interface with an ornamental frame" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">15</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-15-thumb.jpg<br>480 × 300 px</span></span></button>The navigation panel is dark while the reading area is bright with strong contrast. Together they keep your eyes comfortable during long sessions.</p>
-<p>A geometric Islamic ornament frames the window, with no floral or figurative motifs, which keeps it fitting for the Qur&#x27;an.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Free</span>
-<h2><span class="hn">16</span>Free for everyone</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-16.jpg" data-title="Free for everyone" title="Click to enlarge image"><img class="thumb-img" src="fitur-16-thumb.jpg" alt="Free for everyone" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">16</span><span class="float-thumb-label">Image slot</span><span class="float-thumb-res">fitur-16-thumb.jpg<br>480 × 300 px</span></span></button>Al-Qur&#x27;an Digital is free for the public and has no ads. If you find it useful, support through Saweria goes a long way toward its continued development.</p>
-</div>
-</section>
+<p class="section-desc">Each feature explained, with how to use it. Click the image in each section to see the full-size screenshot.</p>
+<section class="article-block"><span class="tag">Lightweight</span><h2><span class="hn">01</span>Only 1 MB, no installation</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-14.webp" data-title="Only 1 MB, no installation" title="Click to enlarge image"><img src="img/thumb/shot-14.webp" alt="Only 1 MB, no installation" width="264" height="179" decoding="async"></button>The whole app is only about 1 MB. There is no installer and no complicated setup: extract the ZIP and run it. It works well on older computers and from a flash drive.</p><p>Both Arabic fonts are stored inside the app data and loaded straight into memory, so you never install a font into Windows and the text looks the same on every computer.</p></div></section><section class="article-block flip"><span class="tag">Accuracy</span><h2><span class="hn">02</span>Text and translation that follow Kemenag</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-15.webp" data-title="Text and translation that follow Kemenag" title="Click to enlarge image"><img src="img/thumb/shot-15.webp" alt="Text and translation that follow Kemenag" width="264" height="179" decoding="async" loading="lazy"></button>All 114 surahs and 6,236 verses follow the Qur&#x27;an Kemenag text, with its punctuation, pause marks, and verse numbers. The translation also comes from the Indonesian Ministry of Religious Affairs.</p><p>Under each verse you can show the Latin reading, the translation, and footnotes where available. Each one can be turned on or off.</p></div></section><section class="article-block"><span class="tag">Language</span><h2><span class="hn">03</span>Indonesian and English versions</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-20.webp" data-title="Indonesian and English versions" title="Click to enlarge image"><img src="img/thumb/shot-20.webp" alt="Indonesian and English versions" width="264" height="179" decoding="async" loading="lazy"></button>Two packages are available: Al-Qur&#x27;an Digital Indonesian and English. Buttons, menus, and translation follow the language of the package you use.</p><p>The language option is also in the Settings menu, right at the top.</p></div></section><section class="article-block flip"><span class="tag">Navigation</span><h2><span class="hn">04</span>All 114 surahs in one panel</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-21.webp" data-title="All 114 surahs in one panel" title="Click to enlarge image"><img src="img/thumb/shot-21.webp" alt="All 114 surahs in one panel" width="264" height="179" decoding="async" loading="lazy"></button>The SHOW SURAH LIST button opens the full list of 114 surahs with their verse counts. The background dims so you can focus on the list, and one click outside the panel closes it.</p><p>The left panel also has buttons numbered 1 to 114 and arrow buttons for the previous or next surah. The surah you are reading is highlighted.</p></div></section><section class="article-block"><span class="tag">Search</span><h2><span class="hn">05</span>Search by surah name and verse number</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-08.webp" data-title="Search by surah name and verse number" title="Click to enlarge image"><img src="img/thumb/shot-08.webp" alt="Search by surah name and verse number" width="264" height="179" decoding="async" loading="lazy"></button>Type a surah name followed by a verse number in the search box, for example At-Taubah: 16. The app opens that surah and highlights the verse.</p><p>It suits looking up a verse mentioned in a talk or an article.</p></div></section><section class="article-block flip"><span class="tag">Quick search</span><h2><span class="hn">06</span>Just the surah and verse numbers</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-09.webp" data-title="Just the surah and verse numbers" title="Click to enlarge image"><img src="img/thumb/shot-09.webp" alt="Just the surah and verse numbers" width="264" height="179" decoding="async" loading="lazy"></button>Speakers usually mention only the surah number and verse number. Type 56.3 and the app opens surah 56 with verse 3 highlighted.</p><p>You do not need to remember surah names, so finding a verse is much faster.</p></div></section><section class="article-block"><span class="tag">Word search</span><h2><span class="hn">07</span>Find a word and see how many verses contain it</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-02.webp" data-title="Find a word and see how many verses contain it" title="Click to enlarge image"><img src="img/thumb/shot-02.webp" alt="Find a word and see how many verses contain it" width="264" height="179" decoding="async" loading="lazy"></button>Type a single word, for example dunia, and the app lists every verse that contains it along with the total. In this example there are 205 verses.</p><p>The searched word is marked in yellow, and each result shows the surah name and verse number so it is easy to trace.</p></div></section><section class="article-block flip"><span class="tag">Reading mode 1</span><h2><span class="hn">08</span>Verse by verse</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-04.webp" data-title="Verse by verse" title="Click to enlarge image"><img src="img/thumb/shot-04.webp" alt="Verse by verse" width="264" height="179" decoding="async" loading="lazy"></button>The most complete mode: each verse appears on its own with the Arabic text, the Latin reading, and then the translation.</p><p>It is comfortable for learning to read and understanding verses one at a time, with no scrolling to another place.</p></div></section><section class="article-block"><span class="tag">Reading mode 2</span><h2><span class="hn">09</span>Ruku block</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-05.webp" data-title="Ruku block" title="Click to enlarge image"><img src="img/thumb/shot-05.webp" alt="Ruku block" width="264" height="179" decoding="async" loading="lazy"></button>The Arabic text flows as one block like in a mushaf, and the translation and reading for each verse are grouped below it.</p><p>It suits uninterrupted Arabic reading while still letting you check the meaning once the block ends.</p></div></section><section class="article-block flip"><span class="tag">Reading mode 3</span><h2><span class="hn">10</span>Two columns</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-06.webp" data-title="Two columns" title="Click to enlarge image"><img src="img/thumb/shot-06.webp" alt="Two columns" width="264" height="179" decoding="async" loading="lazy"></button>The translation sits on the left and the Arabic text on the right, aligned verse by verse. Your eyes only move sideways to compare the Arabic and its meaning.</p><p>The width of the translation column can be adjusted in the Settings menu.</p></div></section><section class="article-block"><span class="tag">Presets</span><h2><span class="hn">11</span>Buttons C1 to C3 for your favorite layouts</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-03.webp" data-title="Buttons C1 to C3 for your favorite layouts" title="Click to enlarge image"><img src="img/thumb/shot-03.webp" alt="Buttons C1 to C3 for your favorite layouts" width="264" height="179" decoding="async" loading="lazy"></button>Set the display the way you like, then save it to one of three preset buttons: C1, C2, or C3. One click and every setting returns to what you saved.</p><p>For example, make one preset that shows only the Arabic text without translation like a regular Qur&#x27;an, and another for full study with translation.</p></div></section><section class="article-block flip"><span class="tag">Highlight</span><h2><span class="hn">12</span>Click a verse to highlight it</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-01.webp" data-title="Click a verse to highlight it" title="Click to enlarge image"><img src="img/thumb/shot-01.webp" alt="Click a verse to highlight it" width="264" height="179" decoding="async" loading="lazy"></button>Click a verse and it is highlighted in blue right away. Useful when teaching, discussing, or showing a particular verse to the person next to you.</p><p>The highlight also helps your eyes find the reading position again on a busy page.</p></div></section><section class="article-block"><span class="tag">Bookmarks</span><h2><span class="hn">13</span>Save your favorite verse positions</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-00.webp" data-title="Save your favorite verse positions" title="Click to enlarge image"><img src="img/thumb/shot-00.webp" alt="Save your favorite verse positions" width="264" height="179" decoding="async" loading="lazy"></button>Press the save-position button to mark the surah and verse you are reading. The bookmark list shows the surah name and position, for example Ayat 22 dari 286.</p><p>Click a bookmark to jump straight there, or remove one with the X button. The count appears as a badge on the Bookmark button.</p></div></section><section class="article-block flip"><span class="tag">Zoom</span><h2><span class="hn">14</span>From small to very large</h2><div class="article-copy"><p>Adjust the display size with the Zoom slider. At 54% one screen holds many verses, while 130% or more suits anyone who finds small text hard to read.</p><p>Non-Arabic text size and translation column width have their own sliders too, so the display can be tuned to fit your eyes.</p></div><div class="gal"><button type="button" class="gal-item" data-full="img/full/shot-24.webp" data-title="54%"><img src="img/mini/shot-24.webp" alt="54%" width="360" height="244" loading="lazy" decoding="async"><span>54%</span></button><button type="button" class="gal-item" data-full="img/full/shot-25.webp" data-title="71%"><img src="img/mini/shot-25.webp" alt="71%" width="360" height="244" loading="lazy" decoding="async"><span>71%</span></button><button type="button" class="gal-item" data-full="img/full/shot-22.webp" data-title="100%"><img src="img/mini/shot-22.webp" alt="100%" width="360" height="244" loading="lazy" decoding="async"><span>100%</span></button><button type="button" class="gal-item" data-full="img/full/shot-23.webp" data-title="130%"><img src="img/mini/shot-23.webp" alt="130%" width="360" height="244" loading="lazy" decoding="async"><span>130%</span></button></div></section><section class="article-block"><span class="tag">Window</span><h2><span class="hn">15</span>Maximize with a double click</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-07.webp" data-title="Maximize with a double click" title="Click to enlarge image"><img src="img/thumb/shot-07.webp" alt="Maximize with a double click" width="264" height="179" decoding="async" loading="lazy"></button>Double-click the app frame to go full screen, and double-click again to return to the previous size. No need to hunt for a maximize button.</p><p>The frame stays neat at any window size.</p></div></section><section class="article-block flip"><span class="tag">Verse numbers</span><h2><span class="hn">16</span>Verse numbers and Arabic font your way</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-22.webp" data-title="Verse numbers and Arabic font your way" title="Click to enlarge image"><img src="img/thumb/shot-22.webp" alt="Verse numbers and Arabic font your way" width="264" height="179" decoding="async" loading="lazy"></button>Verse numbers can use Arabic-style numerals like a mushaf or plain digits (1, 2, 3). There are five verse marker backgrounds: Ganda, Bunga, Bintang, Mandala, and Tiga, named as shown in the app.</p><p>You can also pick the Arabic font, Misbah or DigitalUmmah, and set text alignment (left, right, center, or justify) in the Settings menu.</p></div></section><section class="article-block"><span class="tag">Skins and frames</span><h2><span class="hn">17</span>30 color skins, 31 frame motifs, mix freely</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-19.webp" data-title="30 color skins, 31 frame motifs, mix freely" title="Click to enlarge image"><img src="img/thumb/shot-19.webp" alt="30 color skins, 31 frame motifs, mix freely" width="264" height="179" decoding="async" loading="lazy"></button>Choose one of 30 color skins, then pair it with one of 31 geometric Islamic frame motifs. That makes more than 900 display combinations.</p><p>Skins change the color of the panel and buttons, from dark ones like Arang, Kopi, and Lava to light ones like Awan. Skin and frame names are shown as they appear in the app. The frame surrounds the whole window. Your choice is saved automatically.</p></div><div class="gal"><button type="button" class="gal-item" data-full="img/full/shot-10.webp" data-title="Arang · Sulaman Delapan"><img src="img/mini/shot-10.webp" alt="Arang · Sulaman Delapan" width="360" height="244" loading="lazy" decoding="async"><span>Arang · Sulaman Delapan</span></button><button type="button" class="gal-item" data-full="img/full/shot-11.webp" data-title="Kopi · Mutiara Dua Puluh Empat"><img src="img/mini/shot-11.webp" alt="Kopi · Mutiara Dua Puluh Empat" width="360" height="244" loading="lazy" decoding="async"><span>Kopi · Mutiara Dua Puluh Empat</span></button><button type="button" class="gal-item" data-full="img/full/shot-12.webp" data-title="Lava · Bintang Terbelah"><img src="img/mini/shot-12.webp" alt="Lava · Bintang Terbelah" width="360" height="244" loading="lazy" decoding="async"><span>Lava · Bintang Terbelah</span></button><button type="button" class="gal-item" data-full="img/full/shot-13.webp" data-title="Awan · Segi Lima Sejati"><img src="img/mini/shot-13.webp" alt="Awan · Segi Lima Sejati" width="360" height="244" loading="lazy" decoding="async"><span>Awan · Segi Lima Sejati</span></button></div><div class="gal-head">More frame motif examples</div><div class="gal five"><button type="button" class="gal-item" data-full="img/full/shot-14.webp" data-title="Full Features &amp; User Guide"><img src="img/mini/shot-14.webp" alt="Full Features &amp; User Guide" width="360" height="244" loading="lazy" decoding="async"></button><button type="button" class="gal-item" data-full="img/full/shot-15.webp" data-title="Full Features &amp; User Guide"><img src="img/mini/shot-15.webp" alt="Full Features &amp; User Guide" width="360" height="244" loading="lazy" decoding="async"></button><button type="button" class="gal-item" data-full="img/full/shot-16.webp" data-title="Full Features &amp; User Guide"><img src="img/mini/shot-16.webp" alt="Full Features &amp; User Guide" width="360" height="244" loading="lazy" decoding="async"></button><button type="button" class="gal-item" data-full="img/full/shot-17.webp" data-title="Full Features &amp; User Guide"><img src="img/mini/shot-17.webp" alt="Full Features &amp; User Guide" width="360" height="244" loading="lazy" decoding="async"></button><button type="button" class="gal-item" data-full="img/full/shot-18.webp" data-title="Full Features &amp; User Guide"><img src="img/mini/shot-18.webp" alt="Full Features &amp; User Guide" width="360" height="244" loading="lazy" decoding="async"></button></div></section>
+<h2 class="section-heading" style="margin-top:34px">And much more</h2>
+<div class="cards"><div class="card"><h3>Drag like a touch screen</h3><p>Scroll and drag the screen up and down with the mouse, just like swiping a touch screen with a finger.</p></div><div class="card"><h3>Resume where you left off</h3><p>Your page and reading position are saved automatically. When you reopen the app, the last verse you read opens right away.</p></div><div class="card"><h3>New version alert</h3><p>When a newer version exists, the APP INFO button shows a NEW UPDATE badge, with the version history.</p></div><div class="card"><h3>Auto scroll</h3><p>The text moves up on its own so you can read or review without touching the mouse.</p></div><div class="card"><h3>Latin reading</h3><p>Show the Latin reading with long vowel markers (aa, ii, uu) to help with pronunciation.</p></div><div class="card"><h3>Desktop shortcut</h3><p>One button in Settings creates an app shortcut on your Desktop.</p></div></div>
+<section class="article-block flip"><span class="tag">Free</span><h2><span class="hn">18</span>Free for everyone</h2><div class="article-copy"><p>Al-Qur&#x27;an Digital is free for the public and has no ads. If you find it useful, support through Saweria goes a long way toward its continued development.</p></div></section>
 </article>
 <footer class="page-footer">© DigitalUmmah. All rights reserved.</footer>
 </main>
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle"><div class="lightbox-box"><div class="lightbox-head"><div class="lightbox-title" id="lightboxTitle">Full Image</div><button type="button" class="lightbox-close" id="closeLightbox">Close (ESC)</button></div><div class="lightbox-content" id="lightboxContent"></div></div></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle"><div class="lightbox-box"><div class="lightbox-head"><div class="lightbox-title" id="lightboxTitle">Full Image</div><div class="lightbox-btns"><button type="button" class="lightbox-close lb-nav" id="lbPrev" aria-label="Previous">‹</button><button type="button" class="lightbox-close lb-nav" id="lbNext" aria-label="Next">›</button><button type="button" class="lightbox-close" id="closeLightbox">Close (ESC)</button></div></div><div class="lightbox-content" id="lightboxContent"></div></div></div>
 <script>
 (function () {
   var lightbox = document.getElementById("lightbox");
   var titleEl = document.getElementById("lightboxTitle");
   var content = document.getElementById("lightboxContent");
+  var items = [].slice.call(document.querySelectorAll("[data-full]"));
+  var cur = -1;
   function openBox(src, title, cls) {
     titleEl.textContent = title;
     content.innerHTML = '<span class="lightbox-msg">Loading full-size image...</span>';
@@ -766,23 +647,31 @@
     };
     img.src = src;
   }
-  function closeBox() { lightbox.classList.remove("open"); content.innerHTML = ""; }
-  var thumbs = document.querySelectorAll(".float-thumb");
-  for (var i = 0; i < thumbs.length; i++) {
-    thumbs[i].addEventListener("click", function () {
-      openBox(this.getAttribute("data-full"), this.getAttribute("data-title"), "");
-    });
+  function showItem(i) {
+    if (i < 0) i = items.length - 1;
+    if (i >= items.length) i = 0;
+    cur = i;
+    lightbox.classList.add("nav");
+    openBox(items[i].getAttribute("data-full"), items[i].getAttribute("data-title"), "");
   }
+  function closeBox() { lightbox.classList.remove("open"); lightbox.classList.remove("nav"); content.innerHTML = ""; cur = -1; }
+  items.forEach(function (el, i) { el.addEventListener("click", function () { showItem(i); }); });
   document.getElementById("openQrBtn").addEventListener("click", function () {
+    cur = -1;
+    lightbox.classList.remove("nav");
     openBox("saweria-qr.png", "Saweria QR — saweria.co/DigitalUmmah", "qr-full");
   });
+  document.getElementById("lbPrev").addEventListener("click", function () { showItem(cur - 1); });
+  document.getElementById("lbNext").addEventListener("click", function () { showItem(cur + 1); });
   document.getElementById("closeLightbox").addEventListener("click", closeBox);
   lightbox.addEventListener("click", function (e) { if (e.target === lightbox) closeBox(); });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && lightbox.classList.contains("open")) closeBox();
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeBox();
+    else if (cur >= 0 && e.key === "ArrowLeft") showItem(cur - 1);
+    else if (cur >= 0 && e.key === "ArrowRight") showItem(cur + 1);
   });
 })();
-
 </script>
 <script>
 (function () {

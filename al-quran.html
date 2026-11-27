@@ -267,8 +267,8 @@
       float: left;
       position: relative;
       overflow: hidden;
-      width: 240px;
-      height: 150px;
+      width: 264px;
+      aspect-ratio: 1490 / 1008;
       margin: 4px 22px 12px 0;
       padding: 0;
       border: 2px solid var(--border-soft);
@@ -424,14 +424,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .float-thumb,
-      .article-block.flip .float-thumb {
-        float: none;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 8 / 5;
-        margin: 0 0 12px 0;
-      }
+
     }
 
     .page-footer {
@@ -532,12 +525,6 @@
         width: 100%;
       }
 
-      .float-thumb {
-        float: none;
-        width: 100%;
-        height: 84px;
-        margin: 0 0 12px 0;
-      }
     }
 
     .dl-btn-count {
@@ -567,6 +554,30 @@
       color: var(--gold);
     }
 
+
+    .float-thumb img,.gal-item img{background-color:var(--bg-dark)}
+    .float-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,22,25,.35),transparent 45%);pointer-events:none;opacity:0;transition:opacity .2s ease}
+    .float-thumb:hover::after{opacity:1}
+    .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;clear:both;margin-top:16px}
+    .gal.five{grid-template-columns:repeat(5,1fr)}
+    .gal-head{clear:both;margin-top:18px;font-size:13px;font-weight:700;color:var(--gold)}
+    .gal-item{display:block;padding:0;border:2px solid var(--border-soft);border-radius:8px;background:var(--surface);overflow:hidden;cursor:pointer;text-align:center;color:var(--text-main);transition:border-color .2s ease,transform .2s ease}
+    .gal-item:hover{border-color:var(--gold);transform:translateY(-2px)}
+    .gal-item img{display:block;width:100%;height:auto;aspect-ratio:1490/1008}
+    .gal-item span{display:block;padding:6px 6px 7px;font-size:12px;font-weight:600;line-height:1.3}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:34px}
+    .card{background-color:rgba(10,38,45,.55);border:1px solid var(--border-soft);border-radius:14px;padding:18px}
+    .card h3{font-size:15px;color:var(--gold);margin-bottom:6px}
+    .card p{font-size:14px;line-height:1.6;color:var(--text-muted)}
+    .stats{grid-template-columns:repeat(3,1fr)}
+    .lightbox-btns{display:flex;gap:8px}
+    .lightbox:not(.nav) .lb-nav{display:none}
+    .lightbox-content img{width:auto}
+    @media (max-width:680px){
+      .float-thumb,.article-block.flip .float-thumb{float:none;width:100%;margin:0 0 12px 0}
+      .cards{grid-template-columns:1fr}
+      .gal,.gal.five{grid-template-columns:repeat(2,1fr)}
+    }
 </style>
 </head>
 <body>
@@ -586,8 +597,8 @@
 </div>
 <p class="subtitle">Pilih paket arsip sesuai bahasa yang digunakan. File dikemas dalam bentuk ZIP agar langsung siap diekstrak dan dijalankan.</p>
 <div class="download-group">
-<a href="#" id="dlId" class="dl-btn"><span class="dl-btn-title">Al-qur&#x27;an Indonesian (.zip)</span><span class="dl-btn-size">1,302 KB</span><span class="dl-btn-count"></span></a>
-<a href="#" id="dlEn" class="dl-btn"><span class="dl-btn-title">Al-qur&#x27;an English (.zip)</span><span class="dl-btn-size">1,400 KB</span><span class="dl-btn-count"></span></a>
+<a href="#" id="dlId" class="dl-btn"><span class="dl-btn-title">Al-Qur&#x27;an Indonesian (.zip)</span><span class="dl-btn-size">1,302 KB</span><span class="dl-btn-count"></span></a>
+<a href="#" id="dlEn" class="dl-btn"><span class="dl-btn-title">Al-Qur&#x27;an English (.zip)</span><span class="dl-btn-size">1,400 KB</span><span class="dl-btn-count"></span></a>
 </div>
 <div class="dl-total" id="dlTotal"></div>
 </div>
@@ -597,158 +608,28 @@
 <a href="https://saweria.co/DigitalUmmah" target="_blank" rel="noopener noreferrer" class="saweria-handle">saweria.co/DigitalUmmah</a>
 </aside>
 </header>
-<section class="video-section">
-<h2 class="section-heading">Video Preview YouTube</h2>
-<p class="section-desc">Tampilan singkat penggunaan aplikasi di layar desktop sebelum mengunduh paket rilisnya.</p>
-<div class="video-frame"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Preview Al-Qur&#x27;an Digital" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-</section>
 <section class="stats-section">
 <h2 class="section-heading">Sekilas Aplikasi</h2>
-<div class="stats">
-<div class="stat"><div class="stat-num">114</div><div class="stat-label">Surah</div></div>
-<div class="stat"><div class="stat-num">6.236</div><div class="stat-label">Ayat</div></div>
-<div class="stat"><div class="stat-num">2</div><div class="stat-label">Font Arab</div></div>
-<div class="stat"><div class="stat-num">1 EXE</div><div class="stat-label">Tanpa instal</div></div>
-</div>
+<div class="stats"><div class="stat"><div class="stat-num">114</div><div class="stat-label">Surah</div></div><div class="stat"><div class="stat-num">6.236</div><div class="stat-label">Ayat</div></div><div class="stat"><div class="stat-num">1 MB</div><div class="stat-label">Ukuran aplikasi</div></div><div class="stat"><div class="stat-num">3</div><div class="stat-label">Mode baca</div></div><div class="stat"><div class="stat-num">30</div><div class="stat-label">Skin warna</div></div><div class="stat"><div class="stat-num">31</div><div class="stat-label">Motif bingkai</div></div></div>
 </section>
 <article class="article-stream">
 <h2 class="section-heading">Fitur Lengkap &amp; Panduan Penggunaan</h2>
-<p class="section-desc">Penjelasan tiap fitur beserta cara memakainya. Klik kotak gambar di sisi tiap bagian untuk melihat tangkapan layar ukuran penuh.</p>
-<section class="article-block ">
-<span class="tag">Portable</span>
-<h2><span class="hn">01</span>Satu aplikasi, tanpa instalasi</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-01.jpg" data-title="Satu aplikasi, tanpa instalasi" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-01-thumb.jpg" alt="Satu aplikasi, tanpa instalasi" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">01</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-01-thumb.jpg<br>480 × 300 px</span></span></button>Al-Qur&#x27;an Digital dibuat seringan mungkin. Aplikasi hanya terdiri dari satu file EXE, satu file data Al-Qur&#x27;an (alquran.qre), dan satu file bahasa. Tidak ada installer dan tidak ada pengaturan rumit. Ekstrak ZIP, lalu jalankan.</p>
-<p>Kedua font Arab sudah tersimpan di dalam file data dan dimuat langsung ke memori saat aplikasi dibuka. Anda tidak perlu memasang font apa pun ke Windows, dan tampilan Arab akan sama di setiap komputer.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Akurasi</span>
-<h2><span class="hn">02</span>Teks Arab yang mengikuti Qur&#x27;an Kemenag</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-02.jpg" data-title="Teks Arab yang mengikuti Qur&#x27;an Kemenag" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-02-thumb.jpg" alt="Teks Arab yang mengikuti Qur&#x27;an Kemenag" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">02</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-02-thumb.jpg<br>480 × 300 px</span></span></button>Seluruh 114 surah dan 6.236 ayat disusun mengikuti Al-Qur&#x27;an Kemenag, termasuk tanda baca, tanda waqaf, dan nomor ayat. Teks tidak diringkas dan tidak diparafrasekan.</p>
-<p>Setiap ayat diakhiri lingkaran nomor ayat bergaya ornamen, sehingga batas antar ayat mudah dikenali saat membaca teks yang panjang.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Tipografi</span>
-<h2><span class="hn">03</span>Dua pilihan font Arab</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-03.jpg" data-title="Dua pilihan font Arab" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-03-thumb.jpg" alt="Dua pilihan font Arab" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">03</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-03-thumb.jpg<br>480 × 300 px</span></span></button>Anda bisa memilih Hanzo Naskh atau LPMQ Isep Misbah dari menu Pengaturan. Hanzo Naskh bergaya naskh modern dengan harakat yang rapi, sedangkan LPMQ Isep Misbah adalah font Mushaf Standar Indonesia yang sudah akrab bagi banyak pembaca.</p>
-<p>Pergantian font langsung terlihat tanpa perlu membuka ulang aplikasi, dan pilihan Anda diingat untuk pemakaian berikutnya.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Navigasi</span>
-<h2><span class="hn">04</span>Navigasi 114 surah dalam satu panel</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-04.jpg" data-title="Navigasi 114 surah dalam satu panel" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-04-thumb.jpg" alt="Navigasi 114 surah dalam satu panel" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">04</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-04-thumb.jpg<br>480 × 300 px</span></span></button>Panel kiri menampilkan tombol nomor 1 sampai 114. Klik satu angka dan surah langsung terbuka dari baris paling atas. Tombol panah kiri dan kanan memindahkan Anda ke surah sebelumnya atau berikutnya.</p>
-<p>Surah yang sedang dibuka ditandai dengan warna biru, jadi Anda selalu tahu posisi bacaan saat ini.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Pencarian</span>
-<h2><span class="hn">05</span>Pencarian surah, ayat, dan kata</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-05.jpg" data-title="Pencarian surah, ayat, dan kata" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-05-thumb.jpg" alt="Pencarian surah, ayat, dan kata" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">05</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-05-thumb.jpg<br>480 × 300 px</span></span></button>Kolom cari di panel kiri menerima nama surah, nomor ayat, maupun kata. Hasilnya muncul sebagai daftar, dan satu klik membawa Anda ke ayat yang dimaksud.</p>
-<p>Jika hasil pencarian terlalu banyak, aplikasi menampilkan jumlah awal yang terbatas agar daftar tetap cepat dan tidak membingungkan.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Terjemahan</span>
-<h2><span class="hn">06</span>Terjemahan di bawah setiap ayat</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-06.jpg" data-title="Terjemahan di bawah setiap ayat" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-06-thumb.jpg" alt="Terjemahan di bawah setiap ayat" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">06</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-06-thumb.jpg<br>480 × 300 px</span></span></button>Terjemahan ditampilkan langsung di bawah ayatnya. Anda tidak perlu berpindah halaman atau membuka jendela terpisah untuk memahami maknanya.</p>
-<p>Terjemahan dapat dinyalakan atau dimatikan sesuai kebutuhan, sehingga Anda bisa fokus pada teks Arab saja ketika sedang murajaah.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Cara baca</span>
-<h2><span class="hn">07</span>Bacaan Latin untuk membantu melafalkan</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-07.jpg" data-title="Bacaan Latin untuk membantu melafalkan" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-07-thumb.jpg" alt="Bacaan Latin untuk membantu melafalkan" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">07</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-07-thumb.jpg<br>480 × 300 px</span></span></button>Bagi pembaca yang belum lancar membaca huruf Arab, tersedia tulisan Latin (cara baca) pada tiap ayat. Tulisan ini mengikuti data Kemenag, sehingga konsisten dengan teks yang tampil di atasnya.</p>
-<p>Bacaan Latin juga bisa disembunyikan kapan saja agar tampilan kembali bersih.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Catatan</span>
-<h2><span class="hn">08</span>Catatan kaki yang tetap rapi</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-08.jpg" data-title="Catatan kaki yang tetap rapi" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-08-thumb.jpg" alt="Catatan kaki yang tetap rapi" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">08</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-08-thumb.jpg<br>480 × 300 px</span></span></button>Beberapa ayat memiliki catatan kaki yang menjelaskan istilah atau konteks. Aplikasi menampilkannya sebagai bagian tersendiri sehingga teks ayat tidak terganggu.</p>
-<p>Seperti fitur lainnya, catatan kaki bisa ditampilkan atau disembunyikan lewat Pengaturan.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Bookmark</span>
-<h2><span class="hn">09</span>Bookmark untuk melanjutkan bacaan</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-09.jpg" data-title="Bookmark untuk melanjutkan bacaan" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-09-thumb.jpg" alt="Bookmark untuk melanjutkan bacaan" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">09</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-09-thumb.jpg<br>480 × 300 px</span></span></button>Tandai ayat yang sedang Anda baca, lalu buka kembali kapan saja lewat tombol Bookmark. Jumlah penanda yang tersimpan tampil pada lencana biru di tombol tersebut.</p>
-<p>Bila Anda membuka ayat dari daftar bookmark, aplikasi langsung membawa Anda ke posisi yang ditandai, bukan ke awal surah.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Slot cepat</span>
-<h2><span class="hn">10</span>Tiga slot cepat: C1, C2, dan C3</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-10.jpg" data-title="Tiga slot cepat: C1, C2, dan C3" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-10-thumb.jpg" alt="Tiga slot cepat: C1, C2, dan C3" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">10</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-10-thumb.jpg<br>480 × 300 px</span></span></button>Tiga tombol C1, C2, dan C3 di panel kiri adalah jalan pintas untuk bacaan yang sering Anda buka. Cocok untuk surah harian seperti surah pilihan yang dibaca setiap pagi atau malam.</p>
-<p>Saat salah satu slot diklik, tampilan langsung berpindah ke bagian paling atas bacaan.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Tajwid</span>
-<h2><span class="hn">11</span>Penanda bacaan panjang</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-11.jpg" data-title="Penanda bacaan panjang" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-11-thumb.jpg" alt="Penanda bacaan panjang" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">11</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-11-thumb.jpg<br>480 × 300 px</span></span></button>Fitur Bacaan panjang (aa, ii, uu) membantu Anda mengenali mad pada teks Latin. Anda bisa menyalakannya bila ingin latihan, dan mematikannya bila ingin tampilan yang lebih sederhana.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Kenyamanan</span>
-<h2><span class="hn">12</span>Auto scroll untuk membaca tanpa menyentuh mouse</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-12.jpg" data-title="Auto scroll untuk membaca tanpa menyentuh mouse" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-12-thumb.jpg" alt="Auto scroll untuk membaca tanpa menyentuh mouse" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">12</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-12-thumb.jpg<br>480 × 300 px</span></span></button>Aktifkan Auto scroll dan teks bergerak naik dengan sendirinya. Cocok untuk membaca panjang atau murajaah sambil memegang mushaf atau catatan lain.</p>
-<p>Kecepatan bisa disesuaikan, dan Anda dapat menghentikannya kapan saja.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Pengaturan</span>
-<h2><span class="hn">13</span>Pengaturan tampilan yang lengkap</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-13.jpg" data-title="Pengaturan tampilan yang lengkap" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-13-thumb.jpg" alt="Pengaturan tampilan yang lengkap" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">13</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-13-thumb.jpg<br>480 × 300 px</span></span></button>Menu Pengaturan merangkum pilihan font Arab, tampilan Latin, terjemahan, catatan kaki, bacaan panjang, auto scroll, dan teks non-Arab tebal. Semua perubahan langsung terlihat di layar.</p>
-<p>Pengaturan disimpan otomatis, jadi aplikasi terbuka dengan tampilan yang sama seperti terakhir Anda tutup.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Bahasa</span>
-<h2><span class="hn">14</span>Bahasa antarmuka Indonesia dan English</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-14.jpg" data-title="Bahasa antarmuka Indonesia dan English" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-14-thumb.jpg" alt="Bahasa antarmuka Indonesia dan English" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">14</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-14-thumb.jpg<br>480 × 300 px</span></span></button>Seluruh teks tombol dan menu mengikuti file bahasa yang dipilih. Tersedia paket Indonesia dan English, dan keduanya dapat diganti tanpa mengubah data Al-Qur&#x27;an.</p>
-<p>Karena bahasa disimpan dalam file tersendiri, penambahan bahasa lain di kemudian hari bisa dilakukan tanpa membuat ulang aplikasinya.</p>
-</div>
-</section>
-<section class="article-block ">
-<span class="tag">Tampilan</span>
-<h2><span class="hn">15</span>Tampilan gelap dengan bingkai ornamen</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-15.jpg" data-title="Tampilan gelap dengan bingkai ornamen" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-15-thumb.jpg" alt="Tampilan gelap dengan bingkai ornamen" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">15</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-15-thumb.jpg<br>480 × 300 px</span></span></button>Panel navigasi berwarna gelap, sedangkan area bacaan berwarna terang dengan kontras tinggi. Kombinasi ini menjaga mata tetap nyaman pada sesi membaca yang panjang.</p>
-<p>Bingkai ornamen geometris Islami mengelilingi jendela, tanpa motif bunga atau makhluk hidup, sehingga tetap pantas untuk Al-Qur&#x27;an.</p>
-</div>
-</section>
-<section class="article-block flip">
-<span class="tag">Gratis</span>
-<h2><span class="hn">16</span>Gratis untuk semua orang</h2>
-<div class="article-copy">
-<p><button type="button" class="float-thumb" data-full="fitur-16.jpg" data-title="Gratis untuk semua orang" title="Klik untuk memperbesar gambar"><img class="thumb-img" src="fitur-16-thumb.jpg" alt="Gratis untuk semua orang" width="240" height="150" onerror="this.remove()"><span class="thumb-ph"><span class="float-thumb-num">16</span><span class="float-thumb-label">Tempat gambar</span><span class="float-thumb-res">fitur-16-thumb.jpg<br>480 × 300 px</span></span></button>Al-Qur&#x27;an Digital disediakan gratis untuk umum dan tanpa iklan. Jika aplikasi ini bermanfaat, dukungan lewat Saweria sangat membantu kelanjutan pengembangan.</p>
-</div>
-</section>
+<p class="section-desc">Penjelasan tiap fitur beserta cara memakainya. Klik gambar di tiap bagian untuk melihat tangkapan layar ukuran penuh.</p>
+<section class="article-block"><span class="tag">Ringan</span><h2><span class="hn">01</span>Cuma 1 MB, tanpa instalasi</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-14.webp" data-title="Cuma 1 MB, tanpa instalasi" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-14.webp" alt="Cuma 1 MB, tanpa instalasi" width="264" height="179" decoding="async"></button>Seluruh aplikasi hanya sekitar 1 MB. Tidak ada installer dan tidak ada pengaturan rumit: ekstrak ZIP, lalu jalankan. Cocok untuk komputer lama maupun flashdisk.</p><p>Kedua font Arab sudah tersimpan di dalam data aplikasi dan dimuat langsung ke memori, jadi Anda tidak perlu memasang font apa pun ke Windows dan tampilannya sama di setiap komputer.</p></div></section><section class="article-block flip"><span class="tag">Akurasi</span><h2><span class="hn">02</span>Teks dan terjemahan sesuai Kemenag</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-15.webp" data-title="Teks dan terjemahan sesuai Kemenag" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-15.webp" alt="Teks dan terjemahan sesuai Kemenag" width="264" height="179" decoding="async" loading="lazy"></button>Seluruh 114 surah dan 6.236 ayat mengikuti Al-Qur&#x27;an Kemenag, lengkap dengan tanda baca, tanda waqaf, dan nomor ayat. Terjemahannya juga bersumber dari Kementerian Agama RI.</p><p>Di bawah tiap ayat tersedia cara baca Latin, terjemahan, dan catatan kaki bila ada. Semuanya bisa dinyalakan atau dimatikan sesuai kebutuhan.</p></div></section><section class="article-block"><span class="tag">Bahasa</span><h2><span class="hn">03</span>Versi Indonesia dan English</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-20.webp" data-title="Versi Indonesia dan English" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-20.webp" alt="Versi Indonesia dan English" width="264" height="179" decoding="async" loading="lazy"></button>Tersedia dua paket: Al-Qur&#x27;an Digital Indonesia dan English. Tombol, menu, dan terjemahan mengikuti bahasa paket yang Anda pakai.</p><p>Pilihan bahasa juga tersedia di menu Pengaturan, tepat di bagian paling atas.</p></div></section><section class="article-block flip"><span class="tag">Navigasi</span><h2><span class="hn">04</span>Daftar 114 surah dalam satu panel</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-21.webp" data-title="Daftar 114 surah dalam satu panel" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-21.webp" alt="Daftar 114 surah dalam satu panel" width="264" height="179" decoding="async" loading="lazy"></button>Tombol TAMPILKAN SURAH membuka daftar lengkap 114 surah beserta jumlah ayatnya. Latar belakang meredup agar fokus ke daftar, dan panel tertutup dengan sekali klik di luar panel.</p><p>Di panel kiri ada juga tombol angka 1 sampai 114 dan tombol panah untuk pindah ke surah sebelumnya atau berikutnya. Surah yang sedang dibuka ditandai warna berbeda.</p></div></section><section class="article-block"><span class="tag">Pencarian</span><h2><span class="hn">05</span>Cari dengan nama surah dan nomor ayat</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-08.webp" data-title="Cari dengan nama surah dan nomor ayat" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-08.webp" alt="Cari dengan nama surah dan nomor ayat" width="264" height="179" decoding="async" loading="lazy"></button>Ketik nama surah diikuti nomor ayat di kolom cari, misalnya At-Taubah: 16. Aplikasi langsung membuka surahnya dan menyorot ayat yang dimaksud.</p><p>Cocok saat Anda ingin mencari ayat yang disebut dalam kajian atau tulisan.</p></div></section><section class="article-block flip"><span class="tag">Pencarian cepat</span><h2><span class="hn">06</span>Cukup nomor surah dan nomor ayat</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-09.webp" data-title="Cukup nomor surah dan nomor ayat" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-09.webp" alt="Cukup nomor surah dan nomor ayat" width="264" height="179" decoding="async" loading="lazy"></button>Penceramah biasanya hanya menyebut nomor surah dan nomor ayat. Ketik 56.3 dan aplikasi langsung menampilkan surah ke-56 dengan ayat ke-3 tersorot.</p><p>Tanpa perlu hafal nama surah, mencari ayat jadi jauh lebih cepat.</p></div></section><section class="article-block"><span class="tag">Pencarian kata</span><h2><span class="hn">07</span>Cari kata, lihat jumlah ayatnya</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-02.webp" data-title="Cari kata, lihat jumlah ayatnya" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-02.webp" alt="Cari kata, lihat jumlah ayatnya" width="264" height="179" decoding="async" loading="lazy"></button>Ketik satu kata, misalnya dunia, dan aplikasi menampilkan semua ayat yang memuat kata itu beserta jumlahnya. Pada contoh ini ada 205 ayat.</p><p>Kata yang dicari ditandai kuning, dan setiap hasil mencantumkan nama surah serta nomor ayatnya sehingga mudah ditelusuri.</p></div></section><section class="article-block flip"><span class="tag">Mode baca 1</span><h2><span class="hn">08</span>Per ayat</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-04.webp" data-title="Per ayat" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-04.webp" alt="Per ayat" width="264" height="179" decoding="async" loading="lazy"></button>Mode paling lengkap: setiap ayat tampil sendiri dengan teks Arab, cara baca Latin, lalu terjemahannya.</p><p>Nyaman untuk belajar membaca dan memahami ayat satu per satu tanpa perlu menggulir ke tempat lain.</p></div></section><section class="article-block"><span class="tag">Mode baca 2</span><h2><span class="hn">09</span>Blok rukuk</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-05.webp" data-title="Blok rukuk" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-05.webp" alt="Blok rukuk" width="264" height="179" decoding="async" loading="lazy"></button>Teks Arab tampil mengalir dalam satu blok seperti di mushaf, lalu terjemahan dan cara baca per ayat dikelompokkan di bawahnya.</p><p>Cocok saat Anda ingin membaca Arab tanpa terputus, tetapi tetap bisa melihat artinya begitu blok selesai.</p></div></section><section class="article-block flip"><span class="tag">Mode baca 3</span><h2><span class="hn">10</span>Dua kolom</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-06.webp" data-title="Dua kolom" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-06.webp" alt="Dua kolom" width="264" height="179" decoding="async" loading="lazy"></button>Terjemahan di sisi kiri dan teks Arab di sisi kanan, sejajar per ayat. Mata hanya bergerak ke samping untuk membandingkan Arab dan artinya.</p><p>Lebar kolom terjemahan bisa diatur lewat menu Pengaturan.</p></div></section><section class="article-block"><span class="tag">Preset</span><h2><span class="hn">11</span>Tombol C1 sampai C3 untuk tampilan favorit</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-03.webp" data-title="Tombol C1 sampai C3 untuk tampilan favorit" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-03.webp" alt="Tombol C1 sampai C3 untuk tampilan favorit" width="264" height="179" decoding="async" loading="lazy"></button>Atur tampilan sesuai selera, lalu simpan ke salah satu dari tiga tombol preset: C1, C2, atau C3. Satu klik, seluruh pengaturan kembali seperti yang Anda simpan.</p><p>Contohnya, buat satu preset yang hanya menampilkan teks Arab tanpa terjemahan seperti Al-Qur&#x27;an pada umumnya, dan preset lain untuk belajar lengkap dengan terjemahan.</p></div></section><section class="article-block flip"><span class="tag">Sorot ayat</span><h2><span class="hn">12</span>Klik ayat untuk menyorotnya</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-01.webp" data-title="Klik ayat untuk menyorotnya" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-01.webp" alt="Klik ayat untuk menyorotnya" width="264" height="179" decoding="async" loading="lazy"></button>Klik sebuah ayat dan ayat itu langsung disorot warna biru. Berguna saat mengajar, berdiskusi, atau menunjukkan ayat tertentu kepada orang di sebelah Anda.</p><p>Sorotan juga membantu mata menemukan kembali posisi bacaan di halaman yang padat.</p></div></section><section class="article-block"><span class="tag">Bookmark</span><h2><span class="hn">13</span>Simpan posisi ayat favorit</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-00.webp" data-title="Simpan posisi ayat favorit" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-00.webp" alt="Simpan posisi ayat favorit" width="264" height="179" decoding="async" loading="lazy"></button>Tekan SIMPAN POSISI SAAT INI untuk menandai surah dan ayat yang sedang dibaca. Daftar bookmark menampilkan nama surah dan posisinya, misalnya Ayat 22 dari 286.</p><p>Klik salah satu bookmark untuk langsung melompat ke sana, atau hapus yang tidak diperlukan dengan tombol X. Jumlahnya tampil pada lencana di tombol Bookmark.</p></div></section><section class="article-block flip"><span class="tag">Zoom</span><h2><span class="hn">14</span>Dari kecil sampai sangat besar</h2><div class="article-copy"><p>Atur ukuran tampilan dengan slider Zoom. Pada 54% satu layar memuat banyak ayat sekaligus, sedangkan 130% atau lebih cocok bagi yang kesulitan melihat teks kecil.</p><p>Ukuran teks non-Arab dan lebar kolom terjemahan juga punya slider sendiri, sehingga tampilan bisa disetel sampai pas dengan mata Anda.</p></div><div class="gal"><button type="button" class="gal-item" data-full="img/full/shot-24.webp" data-title="54%"><img src="img/mini/shot-24.webp" alt="54%" width="360" height="244" loading="lazy" decoding="async"><span>54%</span></button><button type="button" class="gal-item" data-full="img/full/shot-25.webp" data-title="71%"><img src="img/mini/shot-25.webp" alt="71%" width="360" height="244" loading="lazy" decoding="async"><span>71%</span></button><button type="button" class="gal-item" data-full="img/full/shot-22.webp" data-title="100%"><img src="img/mini/shot-22.webp" alt="100%" width="360" height="244" loading="lazy" decoding="async"><span>100%</span></button><button type="button" class="gal-item" data-full="img/full/shot-23.webp" data-title="130%"><img src="img/mini/shot-23.webp" alt="130%" width="360" height="244" loading="lazy" decoding="async"><span>130%</span></button></div></section><section class="article-block"><span class="tag">Layar</span><h2><span class="hn">15</span>Maximize dengan dobel klik</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-07.webp" data-title="Maximize dengan dobel klik" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-07.webp" alt="Maximize dengan dobel klik" width="264" height="179" decoding="async" loading="lazy"></button>Klik dua kali pada bingkai aplikasi untuk memperbesar ke layar penuh, klik dua kali lagi untuk kembali ke ukuran semula. Tidak perlu mencari tombol maximize.</p><p>Bingkai aplikasi tetap rapi pada ukuran jendela apa pun.</p></div></section><section class="article-block flip"><span class="tag">Nomor ayat</span><h2><span class="hn">16</span>Nomor ayat dan font Arab sesuai selera</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-22.webp" data-title="Nomor ayat dan font Arab sesuai selera" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-22.webp" alt="Nomor ayat dan font Arab sesuai selera" width="264" height="179" decoding="async" loading="lazy"></button>Nomor ayat bisa tampil dengan angka Arab bergaya mushaf atau angka biasa (1, 2, 3). Tersedia lima pilihan gambar latar nomor ayat: Ganda, Bunga, Bintang, Mandala, dan Tiga.</p><p>Pilih juga font Arab antara Misbah dan DigitalUmmah, lalu atur perataan teks (kiri, kanan, tengah, atau justify) lewat menu Pengaturan.</p></div></section><section class="article-block"><span class="tag">Skin dan bingkai</span><h2><span class="hn">17</span>30 skin warna, 31 motif bingkai, bebas dipadukan</h2><div class="article-copy"><p><button type="button" class="float-thumb" data-full="img/full/shot-19.webp" data-title="30 skin warna, 31 motif bingkai, bebas dipadukan" title="Klik untuk memperbesar gambar"><img src="img/thumb/shot-19.webp" alt="30 skin warna, 31 motif bingkai, bebas dipadukan" width="264" height="179" decoding="async" loading="lazy"></button>Pilih salah satu dari 30 skin warna, lalu padukan dengan salah satu dari 31 motif bingkai geometris Islami. Hasilnya lebih dari 900 kombinasi tampilan.</p><p>Skin mengubah warna panel dan tombol, dari gelap seperti Arang, Kopi, dan Lava sampai terang seperti Awan. Bingkai mengelilingi seluruh jendela. Pilihan Anda tersimpan otomatis.</p></div><div class="gal"><button type="button" class="gal-item" data-full="img/full/shot-10.webp" data-title="Arang · Sulaman Delapan"><img src="img/mini/shot-10.webp" alt="Arang · Sulaman Delapan" width="360" height="244" loading="lazy" decoding="async"><span>Arang · Sulaman Delapan</span></button><button type="button" class="gal-item" data-full="img/full/shot-11.webp" data-title="Kopi · Mutiara Dua Puluh Empat"><img src="img/mini/shot-11.webp" alt="Kopi · Mutiara Dua Puluh Empat" width="360" height="244" loading="lazy" decoding="async"><span>Kopi · Mutiara Dua Puluh Empat</span></button><button type="button" class="gal-item" data-full="img/full/shot-12.webp" data-title="Lava · Bintang Terbelah"><img src="img/mini/shot-12.webp" alt="Lava · Bintang Terbelah" width="360" height="244" loading="lazy" decoding="async"><span>Lava · Bintang Terbelah</span></button><button type="button" class="gal-item" data-full="img/full/shot-13.webp" data-title="Awan · Segi Lima Sejati"><img src="img/mini/shot-13.webp" alt="Awan · Segi Lima Sejati" width="360" height="244" loading="lazy" decoding="async"><span>Awan · Segi Lima Sejati</span></button></div><div class="gal-head">Contoh motif bingkai lainnya</div><div class="gal five"><button type="button" class="gal-item" data-full="img/full/shot-14.webp" data-title="Fitur Lengkap &amp; Panduan Penggunaan"><img src="img/mini/shot-14.webp" alt="Fitur Lengkap &amp; Panduan Penggunaan" width="360" height="244" loading="lazy" decoding="async"></button><button type="button" class="gal-item" data-full="img/full/shot-15.webp" data-title="Fitur Lengkap &amp; Panduan Penggunaan"><img src="img/mini/shot-15.webp" alt="Fitur Lengkap &amp; Panduan Penggunaan" width="360" height="244" loading="lazy" decoding="async"></button><button type="button" class="gal-item" data-full="img/full/shot-16.webp" data-title="Fitur Lengkap &amp; Panduan Penggunaan"><img src="img/mini/shot-16.webp" alt="Fitur Lengkap &amp; Panduan Penggunaan" width="360" height="244" loading="lazy" decoding="async"></button><button type="button" class="gal-item" data-full="img/full/shot-17.webp" data-title="Fitur Lengkap &amp; Panduan Penggunaan"><img src="img/mini/shot-17.webp" alt="Fitur Lengkap &amp; Panduan Penggunaan" width="360" height="244" loading="lazy" decoding="async"></button><button type="button" class="gal-item" data-full="img/full/shot-18.webp" data-title="Fitur Lengkap &amp; Panduan Penggunaan"><img src="img/mini/shot-18.webp" alt="Fitur Lengkap &amp; Panduan Penggunaan" width="360" height="244" loading="lazy" decoding="async"></button></div></section>
+<h2 class="section-heading" style="margin-top:34px">Dan masih banyak lagi</h2>
+<div class="cards"><div class="card"><h3>Geser seperti layar sentuh</h3><p>Gulir dan seret layar naik-turun dengan klik mouse, seperti menggeser layar sentuh dengan jari.</p></div><div class="card"><h3>Lanjut dari posisi terakhir</h3><p>Halaman dan posisi bacaan tersimpan otomatis. Saat aplikasi dibuka lagi, ayat yang terakhir Anda baca langsung terbuka.</p></div><div class="card"><h3>Pengingat versi baru</h3><p>Saat ada versi terbaru, tombol APP INFO menampilkan penanda UPDATE TERBARU, lengkap dengan riwayat versi.</p></div><div class="card"><h3>Auto scroll</h3><p>Teks bergerak naik sendiri untuk membaca atau murajaah tanpa menyentuh mouse.</p></div><div class="card"><h3>Cara baca Latin</h3><p>Tampilkan cara baca Latin lengkap dengan penanda bacaan panjang (aa, ii, uu) untuk membantu melafalkan.</p></div><div class="card"><h3>Shortcut Desktop</h3><p>Satu tombol di menu Pengaturan membuat shortcut aplikasi di Desktop.</p></div></div>
+<section class="article-block flip"><span class="tag">Gratis</span><h2><span class="hn">18</span>Gratis untuk semua orang</h2><div class="article-copy"><p>Al-Qur&#x27;an Digital disediakan gratis untuk umum dan tanpa iklan. Jika aplikasi ini bermanfaat, dukungan lewat Saweria sangat membantu kelanjutan pengembangannya.</p></div></section>
 </article>
 <footer class="page-footer">© DigitalUmmah. All rights reserved.</footer>
 </main>
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle"><div class="lightbox-box"><div class="lightbox-head"><div class="lightbox-title" id="lightboxTitle">Gambar Penuh</div><button type="button" class="lightbox-close" id="closeLightbox">Tutup (ESC)</button></div><div class="lightbox-content" id="lightboxContent"></div></div></div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle"><div class="lightbox-box"><div class="lightbox-head"><div class="lightbox-title" id="lightboxTitle">Gambar Penuh</div><div class="lightbox-btns"><button type="button" class="lightbox-close lb-nav" id="lbPrev" aria-label="Previous">‹</button><button type="button" class="lightbox-close lb-nav" id="lbNext" aria-label="Next">›</button><button type="button" class="lightbox-close" id="closeLightbox">Tutup (ESC)</button></div></div><div class="lightbox-content" id="lightboxContent"></div></div></div>
 <script>
 (function () {
   var lightbox = document.getElementById("lightbox");
   var titleEl = document.getElementById("lightboxTitle");
   var content = document.getElementById("lightboxContent");
+  var items = [].slice.call(document.querySelectorAll("[data-full]"));
+  var cur = -1;
   function openBox(src, title, cls) {
     titleEl.textContent = title;
     content.innerHTML = '<span class="lightbox-msg">Memuat gambar ukuran penuh...</span>';
@@ -766,23 +647,31 @@
     };
     img.src = src;
   }
-  function closeBox() { lightbox.classList.remove("open"); content.innerHTML = ""; }
-  var thumbs = document.querySelectorAll(".float-thumb");
-  for (var i = 0; i < thumbs.length; i++) {
-    thumbs[i].addEventListener("click", function () {
-      openBox(this.getAttribute("data-full"), this.getAttribute("data-title"), "");
-    });
+  function showItem(i) {
+    if (i < 0) i = items.length - 1;
+    if (i >= items.length) i = 0;
+    cur = i;
+    lightbox.classList.add("nav");
+    openBox(items[i].getAttribute("data-full"), items[i].getAttribute("data-title"), "");
   }
+  function closeBox() { lightbox.classList.remove("open"); lightbox.classList.remove("nav"); content.innerHTML = ""; cur = -1; }
+  items.forEach(function (el, i) { el.addEventListener("click", function () { showItem(i); }); });
   document.getElementById("openQrBtn").addEventListener("click", function () {
+    cur = -1;
+    lightbox.classList.remove("nav");
     openBox("saweria-qr.png", "QR Saweria — saweria.co/DigitalUmmah", "qr-full");
   });
+  document.getElementById("lbPrev").addEventListener("click", function () { showItem(cur - 1); });
+  document.getElementById("lbNext").addEventListener("click", function () { showItem(cur + 1); });
   document.getElementById("closeLightbox").addEventListener("click", closeBox);
   lightbox.addEventListener("click", function (e) { if (e.target === lightbox) closeBox(); });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && lightbox.classList.contains("open")) closeBox();
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeBox();
+    else if (cur >= 0 && e.key === "ArrowLeft") showItem(cur - 1);
+    else if (cur >= 0 && e.key === "ArrowRight") showItem(cur + 1);
   });
 })();
-
 </script>
 <script>
 (function () {

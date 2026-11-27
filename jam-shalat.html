@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download Jam Shalat Digital - DigitalUmmah</title>
+  <title>Dalam Pengembangan - Jam Shalat Digital - DigitalUmmah</title>
   <style>
     :root {
       --bg-dark: #051619;
@@ -226,55 +226,35 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+  
+    .lang-switch{display:inline-flex;border:1px solid var(--border-soft);border-radius:8px;overflow:hidden}
+    .lang-switch a{padding:8px 14px;font-size:13px;font-weight:700;color:var(--text-muted);text-decoration:none;background-color:var(--card-bg)}
+    .lang-switch a.on{background-color:var(--gold);color:#082026}
+    .uc{text-align:center;padding:52px 24px 56px}
+    .uc-logo{display:inline-block;border-radius:16px;overflow:hidden;border:1px solid var(--border-soft);line-height:0;margin-bottom:28px;box-shadow:0 10px 36px rgba(0,0,0,.35)}
+    .uc-logo img{display:block;width:200px;height:auto;max-width:60vw}
+    .uc h1{font-size:clamp(32px,6vw,56px);line-height:1.15;margin-bottom:14px;color:var(--gold);letter-spacing:.01em}
+    .uc .sub{font-size:clamp(15px,2.2vw,19px);color:var(--text-muted);line-height:1.55;max-width:560px;margin:0 auto 26px}
+    .uc .name{font-size:14px;font-weight:700;color:#fff;margin-bottom:22px}
+    .bar{width:min(340px,80%);height:10px;margin:0 auto;border-radius:99px;border:1px solid var(--border-soft);overflow:hidden;background:var(--bg-dark)}
+    .bar i{display:block;height:100%;width:100%;background:repeating-linear-gradient(135deg,var(--gold) 0 14px,#0d2f36 14px 28px);background-size:56px 100%;animation:slide 1.4s linear infinite}
+    @keyframes slide{to{background-position:56px 0}}
+    @media (prefers-reduced-motion:reduce){.bar i{animation:none}}
+</style>
 </head>
 <body>
   <div class="page-wrap">
     <div class="top-bar">
       <a href="index.html" class="back-link">← Kembali ke DigitalUmmah</a>
+      <div class="lang-switch"><a href="jam-shalat.html" class="on">Indonesian</a><a href="jam-shalat-en.html" >English</a></div>
     </div>
-
-    <section class="card hero-box">
-      <div class="hero-left">
-        <div class="hero-icon-frame">
-          <img src="LogoJam.jpg" alt="Jam Shalat Digital">
-        </div>
-        <div>
-          <h1>Jam Shalat Digital</h1>
-          <p class="lead">
-            Aplikasi desktop jadwal shalat, tampilan jam analog, dan pengingat adzan karya RadigaSoft.
-          </p>
-        </div>
-      </div>
-
-      <a href="#" class="download-btn">Download Installer / EXE</a>
+    <section class="card uc">
+      <div class="uc-logo"><img src="LogoJam.jpg" alt="Jam Shalat Digital"></div>
+      <div class="name">Jam Shalat Digital</div>
+      <h1>Halaman Sedang Dalam Pengembangan</h1>
+      <p class="sub">Halaman Jam Shalat Digital sedang kami siapkan dan akan segera hadir. Silakan kembali lagi nanti.</p>
+      <div class="bar" aria-hidden="true"><i></i></div>
     </section>
-
-    <div class="media-grid">
-      <section class="card">
-        <div class="section-title">Video Preview YouTube</div>
-        <div class="video-box">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-            title="Preview Jam Shalat Digital"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </section>
-
-      <section class="card">
-        <div class="section-title">Screenshot Aplikasi</div>
-        <div class="ss-grid">
-          <div class="ss-item">
-            <img src="ss-jam-1.jpg" alt="Screenshot Jam Shalat 1">
-          </div>
-          <div class="ss-item">
-            <img src="ss-jam-2.jpg" alt="Screenshot Jam Shalat 2">
-          </div>
-        </div>
-      </section>
-    </div>
   </div>
 </body>
 </html>

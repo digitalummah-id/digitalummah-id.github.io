@@ -716,6 +716,7 @@
     var sum = 0, found = 0;
     for (var i = 0; i < assets.length; i++) {
       var nm = String(assets[i].name).toLowerCase();
+      if (nm.slice(-4) !== ".zip") continue;
       var c = Number(assets[i].download_count) || 0;
       var target = null;
       if (nm.indexOf("indonesian") >= 0) target = btnId;
